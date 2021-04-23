@@ -27,11 +27,9 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     population = new Population();
     target = createVector(width / 2, 80);
-//    frameRate();
 }
 
 function draw() {
-//    background(255, 255, 255);
     clear();
     
     textSize(190);
@@ -49,7 +47,6 @@ function draw() {
     if (count == lifespan) {
         population.evaluate();
         population.selection();
-        // Population = new Population();
         count = 0;
         geracao++;
     }
@@ -71,8 +68,6 @@ function draw() {
         let y;
         let w;
         let h;
-//        rect(this.x, this.y, this.width, this.height);
-//        rect(this.x, this.y, this.width - this.x, this.height - this.y);
         if(obs.x <= mouseX){
             x = obs.x;
             w = mouseX - obs.x;
@@ -89,7 +84,6 @@ function draw() {
             h = obs.y - mouseY;
         }
         rect(x, y, w, h);
-//        rect(obs.x, obs.y, mouseX - obs.x, mouseY - obs.y);
         noStroke();
     }
     strokeWeight(15);

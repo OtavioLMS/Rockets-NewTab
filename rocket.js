@@ -10,11 +10,6 @@ function Rocket(dna, geracao) {
     var b;
     var destaque = false;
     var primeiro = false;
-//    var ro;
-//    var go;
-//    var bo;
-//    var radius;
-//    var legs;
     
     if(geracao == undefined){
         this.ro = floor(random(0, 200));
@@ -23,19 +18,12 @@ function Rocket(dna, geracao) {
         this.radius = floor(random(10,20));
         this.legs = floor(random(-10,-20));
     } else {
-//        this.ro = geracao.ro-1;
-//        this.go = geracao.go-1;
-//        this.bo = geracao.bo-1;
         this.ro = geracao.ro;
         this.go = geracao.go;
         this.bo = geracao.bo;
         this.radius = geracao.radius;
         this.legs = geracao.legs;
     }
-//    var ro = floor(random(0, 150));
-//    var go = floor(random(0, 150));
-//    var bo = floor(random(240, 255));
-
     // Physics of rocket at current instance
     this.pos = createVector(width / 2, height-20);
     this.vel = createVector();
@@ -64,9 +52,6 @@ function Rocket(dna, geracao) {
         // Maps range of fitness
         this.fitness = map(d, 0, width, width, 0);
         // If rocket gets to target increase fitness of rocket
-//        if (d < 200) {
-//            this.fitness *= 5;
-//        }
         if (this.completed) {
             this.fitness *= 10;
         }
@@ -74,9 +59,6 @@ function Rocket(dna, geracao) {
         if (this.crashed) {
             this.fitness /= 10;
         }
-        
-//        this.fitness += peso/10;
-
     }
     // Updates state of rocket
     this.update = function () {
@@ -86,7 +68,6 @@ function Rocket(dna, geracao) {
             this.pos.x = width - 45;
             this.pos.y = 35;
             this.vel = createVector();
-//            this.pos = target.copy();
         } else if (this.completed) {
             this.pos = target.copy();
         } else if (d < targetRadius) {
@@ -129,7 +110,6 @@ function Rocket(dna, geracao) {
         }
         
         if(this.crashed){
-//            fill(this.r, this.g, this.b, 30);
             fill(this.r, this.g, this.b, 30);
         } else {
             fill(this.r, this.g, this.b);
@@ -168,7 +148,6 @@ function Rocket(dna, geracao) {
         }
         
         if(this.crashed){
-//            fill(this.r, this.g, this.b, 30);
             fill(this.r, this.g, this.b, 30);
         } else {
             fill(this.r, this.g, this.b);
